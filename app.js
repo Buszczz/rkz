@@ -1,20 +1,70 @@
-console.log('Katalog warsztatów uruchomiony');
-console.log(typeof 127);        // Wypisze: "number"
-console.log(typeof true);       // Wypisze: "boolean"
-console.log(typeof "127");      // Wypisze: "string"
-console.log(typeof undefined);  // Wypisze: "undefined"
-console.log(typeof NaN);        // Wypisze: "number" (ciekawostka JS - NaN to typ number)
+// ===== typy =====
+console.log(typeof (()=>{}));   // "function"
+console.log(typeof {});         // "object"
+console.log(typeof []);         // "object"
+console.log(typeof -"fef");     // "number" (NaN)
 
-const seats = 12;
-const title = 'Kurs JavaScript';
-let enrolled = 6;
-let slogan;
-let course;
 
-console.log(typeof seats);     // number
-console.log(typeof title);     // string
-console.log(typeof enrolled);  // number
-console.log(typeof slogan);    // undefined
-console.log(typeof course);    // undefined
+if (true) {
+  var a = "avaliable from block outside";   
+  let b = "unavaliable outside the scope of block"; 
+}
+console.log(a); 
 
-console.log(`${title}: wolne ${seats - enrolled} z ${seats}`);
+
+try {
+  console.log(b);
+} catch (err) {
+  console.log("b niedostępne poza blokiem:", err.message);
+}
+
+const c = "wwww"; 
+
+console.log(`${c} ${a}`);
+console.log(c + " " + a);
+console.log(`${-"f" ? c : a}`); 
+
+
+const lang = "js";
+const kurs = `Kurs ${lang}`;
+const stopien = "sredniozaawansowany";
+
+
+const iloscMiejsc = `${Math.floor(Math.random() * 10)} / 10 zajętych`;
+
+
+if (lang === 'js') {
+  console.log("console.log('hello world')");
+} else if (lang === 'ts') {
+  console.log("typeof console.log('hello world')");
+} else {
+  console.log("print('hello world')");
+}
+
+
+switch (lang) {
+  case 'js':
+    console.log("console.log('hello world')");
+    break;
+  case 'ts':
+    console.log("typeof console.log('hello world')");
+    break;
+  default:
+    console.log("print('hello world')");
+}
+
+
+lang === 'js'
+  ? console.log("console.log('hello world')")
+  : lang === 'ts'
+    ? console.log("typeof console.log('hello world')")
+    : console.log("print('hello world')");
+
+
+function printInfo() {
+  console.log("Kurs:", kurs);
+  console.log("Stopień:", stopien);
+  console.log("Miejsca:", iloscMiejsc);
+}
+
+printInfo();
